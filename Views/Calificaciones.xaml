@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JcardenasTS2.Views.Calificaciones"
+             Title="Calificaciones">
+    <VerticalStackLayout>
+
+        <Image
+    Source="uisrael.png"
+    HeightRequest="80"
+    Aspect="AspectFit"
+     />
+
+
+        <Label 
+            
+            Text="Sistema de Calificaciones-UISRAEL"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontSize="20"
+            TextColor="Black"
+            TextDecorations="Underline"
+                  
+            />
+        <StackLayout>
+                   
+            <Label Text="" BackgroundColor="BlanchedAlmond" HorizontalOptions="Fill" />
+           
+        </StackLayout>
+
+        
+        <Picker x:Name="pkNombre"
+                Title="Seleccione estudiante"
+               
+                SelectedIndexChanged="pkNombre_SelectedIndexChanged">
+            
+            <Picker.Items>
+                           
+            <x:String >Manuel Castillo</x:String>
+            <x:String >Jhon Barrera</x:String>
+            <x:String >Elena Mendez</x:String>
+            <x:String >Julia Campoverde</x:String>
+            <x:String>Santiago López</x:String>
+                
+            </Picker.Items>
+        </Picker>
+        
+        
+        
+        <Entry x:Name="notaS1"
+                Placeholder="Ingrese nota seguimiento 1"
+                Keyboard="Numeric"
+                MaxLength="2"
+               Completed="notaS1_Completed"
+                />
+        <Entry x:Name="notaE1"
+               Placeholder=" Ingrese nota del examen"
+               Keyboard="Numeric"
+               MaxLength="2"
+               Completed="notaE1_Completed"
+               Unfocused="notaE1_Unfocused"
+               />
+        
+        <Entry x:Name="parcial1"
+             Placeholder="Nota parcial" 
+             IsEnabled="False"
+               
+        />
+        <Label Text="Seguimiento 2" BackgroundColor="BlanchedAlmond" HorizontalOptions="Fill" />
+
+        <Entry x:Name="notaS2"
+        Placeholder="Ingrese nota seguimiento 2"
+        Keyboard="Numeric"
+        MaxLength="2"
+       Completed="notaS2_Completed"
+        />
+        
+        <Entry x:Name="notaE2"
+        Placeholder=" Ingrese nota del examen 2"
+        Keyboard="Numeric"
+        MaxLength="2"
+        Completed="notaE2_Completed"
+        Unfocused="notaE2_Unfocused"
+               
+       />
+
+        <Entry x:Name="parcial2"
+     Placeholder="Nota parcial 2" 
+     IsEnabled="False"
+               />
+        <Entry x:Name="notaFinal"
+                Placeholder="Nota Final"
+                IsEnabled="False"
+                />
+
+        <DatePicker x:Name="dpFecha" 
+                    Date="06/12/2024" 
+                    Format="MM/dd/yyyy"
+                    DateSelected="dpFecha_DateSelected"
+                    
+                    />
+        
+
+        <Entry x:Name="Estado"
+       Placeholder="Estatus"
+               IsEnabled="False"
+       />
+
+        <Entry x:Name="calFecha"
+       IsVisible="False"
+       />
+
+        <Entry x:Name="selPk"
+               IsVisible="False"
+              />
+
+        <Button x:Name="btnCalculo"
+                Text="Calcular notas del estudiante"
+                Clicked="btnCalculo_Clicked"
+                
+                />
+        
+
+    </VerticalStackLayout>
+</ContentPage>
