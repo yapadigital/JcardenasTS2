@@ -11,80 +11,21 @@ public partial class Calificaciones : ContentPage
 		InitializeComponent();
 	}
 
-	private void notaS1_Completed(object sender, EventArgs e)
-	{
-		var nota1 = Int32.Parse(notaS1.Text);
-
-		if (nota1 >= 10)
-		{
-
-			DisplayAlert("ALERTA", "Solo puede ingresar valor entre 1 y 10", "OK");
-			return;
-					
-		}
-        
-    }
-
-    private void notaE1_Completed(object sender, EventArgs e)
-    {
-        var notaEx1 = Int32.Parse(notaE1.Text);
-
-		if (notaEx1 >= 10)
-		{
-
-			DisplayAlert("ALERTA", "Solo puede ingresar valor entre 1 y 10", "OK");
-			return;
-
-		}
-
-        
-        
-    }
-
-  
-
-    private void notaS2_Completed(object sender, EventArgs e)
-    {
-
-        var nota2 = Int32.Parse(notaS2.Text);
-
-            if (nota2 >= 10)
-            {
-            DisplayAlert("ALERTA", "Solo puede ingresar valor entre 1 y 10", "OK");
-            return;
-             }
-
-    }
-
-    private void notaE2_Completed(object sender, EventArgs e)
-    {
-        var notaEx2 = Int32.Parse(notaE2.Text);
-
-        if (notaEx2 >= 10)
-        {
-
-            DisplayAlert("ALERTA", "Solo puede ingresar valor entre 1 y 10", "OK");
-            return;
-
-        }
-    }
-
-
-
-
+	
 
     private void btnCalculo_Clicked(object sender, EventArgs e)
     {
 
         string fec = dpFecha.ToString();
 
-        
-        calFecha.Text = fec;
+
+        //calFecha.Text = fec;
+        //var dia = DateTime(calFecha.Text);
 
 
 
         DisplayAlert("Calculo", "Estudiante: " + selPk.Text + "\n"+
-            "Fecha: " + calFecha.Text + "\n"+
+            "Fecha: " + calFecha.Text  + "\n"+
             "Nota Parcial 1: "+parcial1.Text+"\n"+
             "Nota Parcial 2: " + parcial2.Text + "\n" +
             "Nota Final " + notaFinal.Text + "\n"+
@@ -97,22 +38,46 @@ public partial class Calificaciones : ContentPage
 
     private void notaE1_Unfocused(object sender, FocusEventArgs e)
     {
-        var nota_parcial1 = (Int32.Parse(notaE1.Text) + Int32.Parse(notaS1.Text)) * 0.3;
+        var E1= Int32.Parse(notaE1.Text);
+        
+        if (E1 >= 10)
+        {
 
-        parcial1.Text = nota_parcial1.ToString();
+            DisplayAlert("ALERTA", "Solo puede ingresar valor entre 1 y 10", "OK");
+            
+            return;
+
+        }
+
+        var CalS1= Int32.Parse(notaS1.Text)*0.3;
+        var Cal_E1 = Int32.Parse(notaE1.Text) * 0.2;
+        var totalM1=CalS1 + Cal_E1;
+        parcial1.Text = totalM1.ToString();
+
+
 
     }
 
     private void notaE2_Unfocused(object sender, FocusEventArgs e)
     {
-        var nota_parcial1 = (Int32.Parse(notaE1.Text) + Int32.Parse(notaS1.Text)) * 0.3;
-        var nota_parcial2 = (Int32.Parse(notaE2.Text) + Int32.Parse(notaS2.Text)) * 0.3;
+
+        var CalS2 = Int32.Parse(notaS2.Text) * 0.3;
+        var Cal_E2 = Int32.Parse(notaE2.Text) * 0.2;
+        var totalM2 = CalS2 + Cal_E2;
+        parcial2.Text = totalM2.ToString();
+        
+        var CalS1 = Int32.Parse(notaS1.Text) * 0.3;
+        var Cal_E1 = Int32.Parse(notaE1.Text) * 0.2;
+        var totalM1 = CalS1 + Cal_E1;
        
 
-        parcial2.Text = nota_parcial2.ToString();
 
-        //notaFinal.Text = Int32.Parse(parcial1.Text) + Int32.Parse(parcial2.Text);
-        var valorFinal = nota_parcial1 + nota_parcial2;
+
+
+
+        var valorFinal = totalM1 + totalM2;
+
+
 
         notaFinal.Text= valorFinal.ToString();
         
@@ -145,5 +110,18 @@ public partial class Calificaciones : ContentPage
         var FechaSel = e.NewDate;
         calFecha.Text=FechaSel.ToString();
 
+    }
+
+    private void notaS1_Unfocused(object sender, FocusEventArgs e)
+    {
+        var NotaS1 = Int32.Parse(notaS1.Text);
+
+        if (NotaS1 >= 10)
+        {
+
+            DisplayAlert("ALERTA", "Solo puede ingresar valor entre 1 y 10", "OK");
+            return;
+
+        }
     }
 }

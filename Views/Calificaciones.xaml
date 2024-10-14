@@ -5,37 +5,25 @@
              Title="Calificaciones">
     <VerticalStackLayout>
 
-        <Image
-    Source="uisrael.png"
-    HeightRequest="80"
-    Aspect="AspectFit"
-     />
+      
+    <Image Source="uisrael.png" HeightRequest="80" Aspect="AspectFit"/>
 
 
         <Label 
-            
-            Text="Sistema de Calificaciones-UISRAEL"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            FontSize="20"
-            TextColor="Black"
-            TextDecorations="Underline"
-                  
-            />
-        <StackLayout>
-                   
-            <Label Text="" BackgroundColor="BlanchedAlmond" HorizontalOptions="Fill" />
-           
-        </StackLayout>
-
-        
-        <Picker x:Name="pkNombre"
-                Title="Seleccione estudiante"
+         Text="Sistema de Calificaciones-UISRAEL"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center"
+         FontSize="20"
+         TextColor="Black"
+         TextDecorations="Underline"
                
-                SelectedIndexChanged="pkNombre_SelectedIndexChanged">
-            
+        />
+        
+          
+        <Picker x:Name="pkNombre"
+            Title="Seleccione estudiante"
+            SelectedIndexChanged="pkNombre_SelectedIndexChanged">
             <Picker.Items>
-                           
             <x:String >Manuel Castillo</x:String>
             <x:String >Jhon Barrera</x:String>
             <x:String >Elena Mendez</x:String>
@@ -45,69 +33,170 @@
             </Picker.Items>
         </Picker>
         
-        
-        
-        <Entry x:Name="notaS1"
-                Placeholder="Ingrese nota seguimiento 1"
+        <Label Text="Seguimiento 1" BackgroundColor="BlanchedAlmond" HorizontalOptions="Fill" />
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <Label   
+            Text="Nota segumiento 1: "
+            Grid.Row="0"
+            Grid.Column="0"/>
+
+            <Entry x:Name="notaS1"
+            Placeholder="Ingrese nota seguimiento 1"
+            Keyboard="Numeric"
+            MaxLength="2"
+            
+            Unfocused="notaS1_Unfocused"
+            Grid.Row="0"
+            Grid.Column="1"
+            />
+            
+                <Label   
+                Text="Nota del examen: "
+                Grid.Row="1"
+                Grid.Column="0"/>
+
+                <Entry x:Name="notaE1"
+                Placeholder=" Ingrese nota del examen"
                 Keyboard="Numeric"
                 MaxLength="2"
-               Completed="notaS1_Completed"
-                />
-        <Entry x:Name="notaE1"
-               Placeholder=" Ingrese nota del examen"
-               Keyboard="Numeric"
-               MaxLength="2"
-               Completed="notaE1_Completed"
-               Unfocused="notaE1_Unfocused"
-               />
-        
-        <Entry x:Name="parcial1"
-             Placeholder="Nota parcial" 
-             IsEnabled="False"
-               
-        />
-        <Label Text="Seguimiento 2" BackgroundColor="BlanchedAlmond" HorizontalOptions="Fill" />
-
-        <Entry x:Name="notaS2"
-        Placeholder="Ingrese nota seguimiento 2"
-        Keyboard="Numeric"
-        MaxLength="2"
-       Completed="notaS2_Completed"
-        />
-        
-        <Entry x:Name="notaE2"
-        Placeholder=" Ingrese nota del examen 2"
-        Keyboard="Numeric"
-        MaxLength="2"
-        Completed="notaE2_Completed"
-        Unfocused="notaE2_Unfocused"
-               
-       />
-
-        <Entry x:Name="parcial2"
-     Placeholder="Nota parcial 2" 
-     IsEnabled="False"
-               />
-        <Entry x:Name="notaFinal"
-                Placeholder="Nota Final"
-                IsEnabled="False"
+                
+                Unfocused="notaE1_Unfocused"
+                Grid.Row="1"
+                Grid.Column="1"         
                 />
 
-        <DatePicker x:Name="dpFecha" 
-                    Date="06/12/2024" 
-                    Format="MM/dd/yyyy"
-                    DateSelected="dpFecha_DateSelected"
-                    
+
+                    <Label
+                    Text="Nota del parcial:  "
+                    Grid.Row="2"
+                    Grid.Column="0"/>
+
+                    <Entry x:Name="parcial1"
+                    Placeholder="Nota parcial" 
+                    IsEnabled="False"
+                    Grid.Row="2"
+                    Grid.Column="1"  
                     />
+
+        </Grid>
+
+
+        <Label Text="Seguimiento 2" TextColor="White" HorizontalTextAlignment="Center" BackgroundColor="DarkBlue" HorizontalOptions="Fill" />
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Nota de Seguimiento 2: "
+            Grid.Row="0"
+            Grid.Column="0"
+            />
+            
+            <Entry x:Name="notaS2"
+            Placeholder="Ingrese nota seguimiento 2"
+            Keyboard="Numeric"
+            MaxLength="2"
+           
+            Grid.Row="0"
+            Grid.Column="1"
+            />
+
+                <Label Text="Nota de Examen 2: "
+                Grid.Row="1"
+                Grid.Column="0"
+                />
+
+                <Entry x:Name="notaE2"
+                Placeholder=" Ingrese nota del examen 2"
+                Keyboard="Numeric"
+                MaxLength="2"
+                               Unfocused="notaE2_Unfocused"
+                Grid.Row="1"
+                Grid.Column="1"
+                />
+            
+                    <Label Text="Nota de Parcial 2: "
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    />
+                    <Entry x:Name="parcial2"
+                    Placeholder="Nota parcial 2" 
+                    IsEnabled="False"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    />
+        </Grid>
+
+        <Label Text="Resultados" TextColor="White" HorizontalTextAlignment="Center" BackgroundColor="DarkBlue" HorizontalOptions="Fill" />
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Nota final: "    
+               Grid.Row="0"
+               Grid.Column="0"/>
+            <Entry x:Name="notaFinal"
+         Placeholder="Nota Final"
+         IsEnabled="False"
+               Grid.Row="0"
+               Grid.Column="1"
+         />
+        
+            <DatePicker x:Name="dpFecha" 
+             Date="06/12/2024" 
+             Format="MM/dd/yyyy"
+             
+             DateSelected="dpFecha_DateSelected"
+               Grid.Row="1"
+  Grid.Column="1"
+             />
+            <Entry x:Name="Estado"
+        Placeholder="Estatus"
+        IsEnabled="False"
+               Grid.Row="1"
+               Grid.Column="0"
+/>
+        </Grid>
+
+
+ 
+
+       
         
 
-        <Entry x:Name="Estado"
-       Placeholder="Estatus"
-               IsEnabled="False"
-       />
+        
 
         <Entry x:Name="calFecha"
-       IsVisible="False"
+       IsVisible="True"
        />
 
         <Entry x:Name="selPk"
