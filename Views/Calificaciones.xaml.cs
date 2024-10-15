@@ -121,7 +121,6 @@ public partial class Calificaciones : ContentPage
 
             DisplayAlert("ALERTA", "Solo puede ingresar valor entre 1 y 10", "OK");
             return;
-
-        }
+            }
     }
 }
