@@ -6,7 +6,8 @@
         {
             InitializeComponent();
 
-            MainPage = new Views.Calificaciones();
+            MainPage = new NavigationPage (new Views.Login());
+
         }
     }
 }
