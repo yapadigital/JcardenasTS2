@@ -45,6 +45,7 @@ public partial class Login : ContentPage
             DisplayAlert("Bienvenido", $"Hola, {usuario} un gusto tenerte aquí", "Cerrar");
             //Llama a la carpeta y Operaciones.xaml
             Navigation.PushAsync(new Views.Calificaciones());
+            //
         }
         else
         {
